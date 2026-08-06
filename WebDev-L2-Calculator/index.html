@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Calculator Container -->
+    <div class="calculator">
+      <!-- Calculator Heading -->
+      <h1>Calculator</h1>
+
+      <!-- Display Screen -->
+      <div class="display">
+        <input type="text" id="display" placeholder="0" readonly />
+      </div>
+
+      <!-- Buttons Container -->
+      <div class="buttons">
+        <!-- Row 1 -->
+        <button class="control-btn" value="C">C</button>
+        <button class="control-btn" value="back">⌫</button>
+        <button class="operator-btn" value="/">÷</button>
+        <button class="operator-btn" value="*">×</button>
+
+        <!-- Row 2 -->
+        <button class="number-btn" value="7">7</button>
+        <button class="number-btn" value="8">8</button>
+        <button class="number-btn" value="9">9</button>
+        <button class="operator-btn" value="-">-</button>
+
+        <!-- Row 3 -->
+        <button class="number-btn" value="4">4</button>
+        <button class="number-btn" value="5">5</button>
+        <button class="number-btn" value="6">6</button>
+        <button class="operator-btn" value="+">+</button>
+
+        <!-- Row 4 -->
+        <button class="number-btn" value="1">1</button>
+        <button class="number-btn" value="2">2</button>
+        <button class="number-btn" value="3">3</button>
+        <button class="equal-btn">=</button>
+
+        <!-- Row 5 -->
+        <button class="number-btn zero" value="0">0</button>
+        <button class="decimal-btn" value=".">.</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
