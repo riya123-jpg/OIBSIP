@@ -1,0 +1,221 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+section {
+  padding: 60px 0;
+}
+/* header */
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #0b1f3a;
+  font-size: 2rem;
+}
+header {
+  background-color: #0b1f3a;
+  color: white;
+  padding: 50px 8%;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+}
+
+.image-container {
+  flex: 1;
+}
+
+.image-container img {
+  max-width: 320px;
+  border-radius: 12px;
+  margin: auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.content-container {
+  flex: 1.5;
+  padding-top: 20px;
+}
+
+.content-container h1 {
+  font-size: 2.7rem;
+  margin-bottom: 20px;
+}
+
+.tagline {
+  color: #d4af37;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.intro {
+  font-size: 1rem;
+  text-align: justify;
+  max-width: 500px;
+  line-height: 1.8;
+  margin-top: 10px;
+}
+/* biography */
+.biography {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+  padding: 80px 0;
+}
+.biography-content {
+  max-width: 850px;
+  margin: auto;
+}
+.biography h2 {
+  margin-bottom: 45px;
+}
+.biography-content p {
+  margin-bottom: 30px;
+  text-align: justify;
+  font-size: 1rem;
+  line-height: 1.9;
+}
+.biography-content p:first-child {
+  font-size: 1.1rem;
+}
+.biography time {
+  font-weight: bold;
+  color: #0b1f3a;
+  background: #ffffff;
+}
+/* timeline */
+.timeline {
+  background-color: #f4f6f9;
+  padding: 20px 0;
+}
+
+.timeline-list {
+  list-style: none;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline h2 {
+  margin-bottom: 50px;
+}
+.timeline-item {
+  background-color: #fff;
+  padding: 20px 25px;
+  margin-bottom: 25px;
+  border-left: 5px solid #0b1f3a;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.timeline-item time {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #d4af37;
+}
+
+.timeline-item h3 {
+  font-size: 1.35rem;
+  color: #0b1f3a;
+  margin: 8px 0 12px;
+}
+
+.timeline-item p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.timeline-item:hover {
+  transform: translateY(-4px);
+}
+.timeline-item {
+  transition: 0.3s;
+}
+.timeline-item:first-child {
+  border-left-color: #d4af37;
+}
+/* quote */
+.quote {
+  background-color: #0b1f3a;
+  color: white;
+  text-align: center;
+  padding: 70px 0;
+}
+
+.quote blockquote {
+  font-size: 1.6rem;
+  font-style: italic;
+  max-width: 900px;
+  margin: 0 auto 25px;
+}
+
+.quote cite {
+  color: #d4af37;
+  font-size: 1rem;
+}
+/* footer */
+footer {
+  background-color: #111;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+footer p:last-child {
+  max-width: 700px;
+  margin: 15px auto 0;
+}
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .content-container h1 {
+    font-size: 2.2rem;
+  }
+
+  .intro {
+    text-align: center;
+  }
+
+  .image-container img {
+    max-width: 250px;
+  }
+
+  h2 {
+    font-size: 1.7rem;
+  }
+
+  .quote blockquote {
+    font-size: 1.3rem;
+  }
+}
