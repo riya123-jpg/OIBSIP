@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+}
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: 40px auto;
+}
+/* header part */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+header h1 {
+  font-size: 2.5rem;
+  color: #1e3a8a;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+header p {
+  font-size: 1rem;
+  color: #6b7280;
+  margin-bottom: 0;
+}
+/* form */
+.task-form {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+#task-input {
+  flex: 1;
+  padding: 14px 18px;
+  font-size: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+}
+#task-input:focus {
+  border-color: #1e3a8a;
+}
+#add-task-btn {
+  padding: 14px 22px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1e3a8a;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+#add-task-btn:hover {
+  background-color: #173075;
+}
+
+#add-task-btn:active {
+  transform: scale(1.03);
+}
+
+/* task  */
+.tasks-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.task-card {
+  background: #fff;
+  border: 1px solid #e8ecf3;
+  border-radius: 16px;
+  padding: 1.7rem;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+.task-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  margin: 18px 0;
+}
+.card-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1b2b52;
+  .card-header h2 {
+    white-space: nowrap;
+  }
+}
+.task-count {
+  background: #eef2ff;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #6b7280;
+}
+.empty-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.empty-state h3 {
+  font-size: 1.3rem;
+  color: #23395d;
+  margin-bottom: 0.7rem;
+}
+.empty-state p {
+  max-width: 260px;
+  color: #7b8794;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
