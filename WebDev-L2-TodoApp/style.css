@@ -47,7 +47,7 @@ header p {
 #task-input:focus {
   border-color: #1e3a8a;
 }
-#add-task-btn {
+#add-btn {
   padding: 14px 22px;
   border: none;
   border-radius: 8px;
@@ -57,11 +57,11 @@ header p {
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
-#add-task-btn:hover {
+#add-btn:hover {
   background-color: #173075;
 }
 
-#add-task-btn:active {
+#add-btn:active {
   transform: scale(1.03);
 }
 

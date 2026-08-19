@@ -21,7 +21,7 @@
             placeholder="Enter a new task..."
           />
 
-          <button id="add-task-btn">Add Task</button>
+          <button id="add-btn">Add Task</button>
         </section>
         <!-- task section -->
         <section class="tasks-section">
@@ -31,13 +31,11 @@
             <div class="card-header">
               <h2>Pending Tasks</h2>
 
-              <span class="task-count"> 0 Pending </span>
+              <span class="task-count pending-count"> 0 Pending </span>
             </div>
 
-            <div class="task-list">
-              <div class="empty-state">
-                <!-- <div class="empty-icon">📋</div> -->
-
+            <div class="task-list pending-list">
+              <div class="empty-state pending-empty">
                 <h3>No pending tasks</h3>
 
                 <p>Add your first task above to get started.</p>
@@ -51,13 +49,11 @@
             <div class="card-header">
               <h2>Completed Tasks</h2>
 
-              <span class="task-count"> 0 Completed </span>
+              <span class="task-count completed-count"> 0 Completed </span>
             </div>
 
-            <div class="task-list">
-              <div class="empty-state">
-                <!-- <div class="empty-icon">📋</div> -->
-
+            <div class="task-list completed-list">
+              <div class="empty-state completed-empty">
                 <h3>Nothing completed yet</h3>
 
                 <p>Complete a task and it will appear here.</p>
