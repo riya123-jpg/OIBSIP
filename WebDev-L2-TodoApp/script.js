@@ -40,6 +40,7 @@ function addTask() {
   console.log(tasks);
   saveTasks();
   renderTasks();
+  updateCounts();
 }
 
 //saveTasks
@@ -50,34 +51,52 @@ function saveTasks() {
 
 //createTaskCard
 function createTaskCard(task) {
+  let actions = "";
+
+  if (task.status === "pending") {
+    actions = `
+      <button class="complete-btn" data-action="complete">
+        Complete
+      </button>
+
+      <button class="edit-btn" data-action="edit">
+        Edit
+      </button>
+
+      <button class="delete-btn" data-action="delete">
+        Delete
+      </button>
+    `;
+  } else if (task.status === "completed") {
+    actions = `
+      <button class="edit-btn" data-action="edit">
+        Edit
+      </button>
+
+      <button class="delete-btn" data-action="delete">
+        Delete
+      </button>
+    `;
+  }
+
   const html = `
-  <article class="task-item" data-task-id="${task.id}">
-  <div class="task-content">
-    <h3 class="task-title">${task.text}</h3>
+    <article class="task-item" data-task-id="${task.id}">
+      <div class="task-content">
+      <input class="edit-input" value="Learn JavaScript">
+        <p class="task-time">
+          ${task.status === "pending" ? "Added" : "Completed"}:
+          ${task.createdAt}
+        </p>
+      </div>
 
-    <p class="task-time">
-      Added: ${task.createdAt}
-    </p>
-  </div>
-
-  <div class="task-actions">
-    <button class="complete-btn" data-action="complete">
-      Complete
-    </button>
-
-    <button class="edit-btn" data-action="edit">
-      Edit
-    </button>
-
-    <button class="delete-btn" data-action="delete">
-      Delete
-    </button>
-  </div>
-</article>
+      <div class="task-actions">
+        ${actions}
+      </div>
+    </article>
   `;
+
   return html;
 }
-
 //renderTasks
 function renderTasks() {
   // old ui clear
@@ -117,8 +136,79 @@ function loadTasks() {
   }
 
   renderTasks();
+  updateCounts();
 }
 //updateCounts
+function updateCounts() {
+  let pending = 0;
+  let completed = 0;
+
+  tasks.forEach((task) => {
+    if (task.status === "pending") {
+      pending++;
+    } else if (task.status === "completed") {
+      completed++;
+    }
+  });
+  pendingCount.textContent = pending;
+  completedCount.textContent = completed;
+}
+//parent listener
+pendingList.addEventListener("click", (event) => {
+  let clickElement = event.target;
+  console.log(clickElement);
+  if (clickElement.dataset.action === "complete") {
+    let article = event.target.closest(".task-item");
+    let id = Number(article.dataset.taskId);
+    toggleTask(id);
+  }
+  if (clickElement.dataset.action === "edit") {
+    let article = event.target.closest(".task-item");
+    let id = Number(article.dataset.taskId);
+    let titleElement = article.querySelector(".task-title");
+    let text = titleElement.textContent;
+    console.log(text);
+    editTask(id, text);
+  }
+});
+
+completedList.addEventListener("click", (event) => {
+  let clickElement = event.target;
+
+  if (clickElement.dataset.action === "edit") {
+    let article = event.target.closest(".task-item");
+    let id = Number(article.dataset.taskId);
+    let titleElement = article.querySelector(".task-title");
+    let text = titleElement.textContent;
+    console.log(text);
+    // editTask(id, text);
+  }
+});
+
 //toggleTask
+function toggleTask(taskId) {
+  const task = tasks.find((task) => task.id === taskId);
+  if (task) {
+    task.status = "completed";
+  }
+  saveTasks();
+  renderTasks();
+  updateCounts();
+}
+
 //editTask
+function editTask(taskId, newText) {
+  newText = newText.trim();
+  if (!newText) {
+    return;
+  }
+  const task = tasks.find((task) => task.id === taskId);
+  if (!task) {
+    return;
+  }
+  task.text = newText;
+  saveTasks();
+  renderTasks();
+}
+
 //deleteTask
