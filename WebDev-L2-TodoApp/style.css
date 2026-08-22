@@ -130,3 +130,124 @@ header p {
   line-height: 1.6;
   font-size: 0.95rem;
 }
+
+/* card ui */
+.task-item {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.task-content {
+  margin-bottom: 12px;
+}
+
+.task-title {
+  margin-bottom: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+.task-time {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+.task-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.task-actions button {
+  padding: 7px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: #ffffff;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.complete-btn {
+  color: #166534;
+  border-color: #bbf7d0;
+}
+
+.complete-btn:hover {
+  background-color: #f0fdf4;
+}
+.edit-btn {
+  color: #374151;
+}
+
+.edit-btn:hover {
+  background-color: #f3f4f6;
+}
+.delete-btn {
+  color: #b91c1c;
+  border-color: #fecaca;
+}
+
+.delete-btn:hover {
+  background-color: #fef2f2;
+}
+
+/* edit input style */
+.edit-task-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.edit-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.edit-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #1f2937;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.edit-input:focus {
+  border-color: #1e3a8a;
+}
+
+.edit-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-actions button {
+  padding: 7px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: #ffffff;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.save-edit-btn {
+  color: #166534;
+  border-color: #bbf7d0;
+}
+
+.save-edit-btn:hover {
+  background-color: #f0fdf4;
+}
+
+.cancel-edit-btn {
+  color: #374151;
+}
+
+.cancel-edit-btn:hover {
+  background-color: #f3f4f6;
+}
