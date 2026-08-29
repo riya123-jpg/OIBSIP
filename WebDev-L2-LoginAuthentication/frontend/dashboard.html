@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="./css/dashboard.css" />
+  </head>
+
+  <body>
+    <main class="dashboard-page">
+      <section class="dashboard-container">
+        <header class="dashboard-header">
+          <div>
+            <h1>Welcome, <span id="username">User</span></h1>
+            <p>You're successfully logged in.</p>
+          </div>
+
+          <button type="button" id="logout-btn">Logout</button>
+        </header>
+
+        <section class="user-info">
+          <h2>Account Details</h2>
+
+          <div class="info-row">
+            <span>Username</span>
+            <strong id="user-username">-</strong>
+          </div>
+
+          <div class="info-row">
+            <span>Email</span>
+            <strong id="user-email">-</strong>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="./js/dashboard.js"></script>
+  </body>
+</html>
