@@ -8,6 +8,8 @@ async function connectDB() {
     console.error("MongoDB connection failed:", err);
     throw err;
   }
+  console.log("Database:", mongoose.connection.name);
+  console.log("Host:", mongoose.connection.host);
 }
 
 module.exports = connectDB;
