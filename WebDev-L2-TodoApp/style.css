@@ -1,0 +1,253 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+}
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: 40px auto;
+}
+/* header part */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+header h1 {
+  font-size: 2.5rem;
+  color: #1e3a8a;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+header p {
+  font-size: 1rem;
+  color: #6b7280;
+  margin-bottom: 0;
+}
+/* form */
+.task-form {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+#task-input {
+  flex: 1;
+  padding: 14px 18px;
+  font-size: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+}
+#task-input:focus {
+  border-color: #1e3a8a;
+}
+#add-btn {
+  padding: 14px 22px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1e3a8a;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+#add-btn:hover {
+  background-color: #173075;
+}
+
+#add-btn:active {
+  transform: scale(1.03);
+}
+
+/* task  */
+.tasks-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.task-card {
+  background: #fff;
+  border: 1px solid #e8ecf3;
+  border-radius: 16px;
+  padding: 1.7rem;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+.task-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  margin: 18px 0;
+}
+.card-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1b2b52;
+  .card-header h2 {
+    white-space: nowrap;
+  }
+}
+.task-count {
+  background: #eef2ff;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #6b7280;
+}
+.empty-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.empty-state h3 {
+  font-size: 1.3rem;
+  color: #23395d;
+  margin-bottom: 0.7rem;
+}
+.empty-state p {
+  max-width: 260px;
+  color: #7b8794;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* card ui */
+.task-item {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.task-content {
+  margin-bottom: 12px;
+}
+
+.task-title {
+  margin-bottom: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+.task-time {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+.task-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.task-actions button {
+  padding: 7px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: #ffffff;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.complete-btn {
+  color: #166534;
+  border-color: #bbf7d0;
+}
+
+.complete-btn:hover {
+  background-color: #f0fdf4;
+}
+.edit-btn {
+  color: #374151;
+}
+
+.edit-btn:hover {
+  background-color: #f3f4f6;
+}
+.delete-btn {
+  color: #b91c1c;
+  border-color: #fecaca;
+}
+
+.delete-btn:hover {
+  background-color: #fef2f2;
+}
+
+/* edit input style */
+.edit-task-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.edit-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.edit-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #1f2937;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.edit-input:focus {
+  border-color: #1e3a8a;
+}
+
+.edit-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-actions button {
+  padding: 7px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: #ffffff;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.save-edit-btn {
+  color: #166534;
+  border-color: #bbf7d0;
+}
+
+.save-edit-btn:hover {
+  background-color: #f0fdf4;
+}
+
+.cancel-edit-btn {
+  color: #374151;
+}
+
+.cancel-edit-btn:hover {
+  background-color: #f3f4f6;
+}

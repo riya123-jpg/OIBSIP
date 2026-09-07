@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>My To-Do List</h1>
+        <p>Organize your daily tasks and stay productive.</p>
+      </header>
+      <main>
+        <!-- form -->
+        <section class="task-form">
+          <input
+            type="text"
+            id="task-input"
+            placeholder="Enter a new task..."
+          />
+
+          <button id="add-btn">Add Task</button>
+        </section>
+        <!-- task section -->
+        <section class="tasks-section">
+          <!--  -->
+
+          <div class="task-card pending-card">
+            <div class="card-header">
+              <h2>Pending Tasks</h2>
+
+              <span class="task-count pending-count"> 0 Pending </span>
+            </div>
+
+            <div class="task-list pending-list">
+              <div class="empty-state pending-empty">
+                <h3>No pending tasks</h3>
+
+                <p>Add your first task above to get started.</p>
+              </div>
+            </div>
+          </div>
+
+          <!--  -->
+
+          <div class="task-card completed-card">
+            <div class="card-header">
+              <h2>Completed Tasks</h2>
+
+              <span class="task-count completed-count"> 0 Completed </span>
+            </div>
+
+            <div class="task-list completed-list">
+              <div class="empty-state completed-empty">
+                <h3>Nothing completed yet</h3>
+
+                <p>Complete a task and it will appear here.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
