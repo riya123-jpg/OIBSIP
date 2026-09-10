@@ -2,7 +2,7 @@ const userModel = require("../models/user.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
-const tokenModel = require("../models/verificationToken");
+const tokenModel = require("../models/verificationToken.model");
 const {
   sendVerificationEmail,
   sendPasswordResetEmail,
@@ -101,7 +101,15 @@ async function loginUserService({ identifier, password }) {
       expiresIn: "1h",
     },
   );
-  return user;
+  return {
+    token,
+    user: {
+      id: user._id,
+      username: user.username,
+      email: user.email,
+      role: user.role,
+    },
+  };
 }
 
 async function verifyEmailService(token) {
@@ -135,6 +143,45 @@ async function verifyEmailService(token) {
     email: user.email,
     isEmailVerified: user.isEmailVerified,
   };
+}
+
+async function resendVerificationServices({ email }) {
+  const normalizedEmail = email.trim().toLowerCase();
+
+  const user = await userModel.findOne({
+    email: normalizedEmail,
+  });
+
+  if (!user) {
+    return;
+  }
+  if (user.isEmailVerified) {
+    throw new Error("email is already verified");
+  }
+
+  await tokenModel.deleteMany({
+    userId: user._id,
+  });
+
+  const rawToken = await crypto.randomBytes(32).toString("hex");
+
+  const tokenHash = await crypto
+    .createHash("sha256")
+    .update(rawToken)
+    .digest("hex");
+
+  const expiresAt = new Date(Date.now() + 30 * 60 * 1000);
+
+  await tokenModel.create({
+    userId: user._id,
+    tokenHash,
+    expiresAt,
+  });
+  await sendVerificationEmail({
+    email: user.email,
+    username: user.username,
+    rawToken,
+  });
 }
 
 async function forgetPasswordService({ email }) {
@@ -224,6 +271,7 @@ module.exports = {
   registerUserService,
   loginUserService,
   verifyEmailService,
+  resendVerificationServices,
   forgetPasswordService,
   resetPasswordService,
 };

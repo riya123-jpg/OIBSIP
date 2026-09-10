@@ -1,9 +1,11 @@
+const userModel = require("../models/user.model");
 const {
   registerUserService,
   loginUserService,
   verifyEmailService,
   forgetPasswordService,
   resetPasswordService,
+  resendVerificationServices,
 } = require("../services/auth.service");
 
 async function registerUser(req, res) {
@@ -40,13 +42,21 @@ async function loginUser(req, res) {
       identifier,
       password,
     });
+
+    res.cookie("token", result.token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+    });
+
     res.status(200).json({
       success: true,
       message: "user logged in successfully",
       user: {
-        id: result.id,
-        username: result.username,
-        email: result.email,
+        id: result.user.id,
+        username: result.user.username,
+        email: result.user.email,
+        role: result.user.role,
       },
     });
   } catch (err) {
@@ -70,6 +80,25 @@ async function verifyEmail(req, res) {
     });
   } catch (err) {
     console.log("email verification error : ", err);
+    res.status(500).json({
+      success: false,
+      message: err.message,
+    });
+  }
+}
+
+async function resendVerification(req, res) {
+  try {
+    const { email } = req.body;
+    const result = await resendVerificationServices({ email });
+
+    res.status(200).json({
+      success: true,
+      message:
+        "If an account exists for this email, a verification link has been sent.",
+    });
+  } catch (err) {
+    console.log("error in resendVerification ", err);
     res.status(500).json({
       success: false,
       message: err.message,
@@ -115,11 +144,36 @@ async function resetPassword(req, res) {
     });
   }
 }
+async function getMe(req, res) {
+  const id = req.user.userId;
+  const user = await userModel.findById(id);
+  if (!user) {
+    return res.status(404).json({
+      success: false,
+      message: "User not found",
+    });
+  }
+  const safeUser = {
+    id: user._id,
+    username: user.username,
+    email: user.email,
+    role: user.role,
+    isEmailVerified: user.isEmailVerified,
+  };
+
+  res.status(200).json({
+    success: true,
+    message: "user fetched successfully",
+    user: safeUser,
+  });
+}
 
 module.exports = {
   registerUser,
   loginUser,
   verifyEmail,
+  resendVerification,
   forgotPassword,
   resetPassword,
+  getMe,
 };

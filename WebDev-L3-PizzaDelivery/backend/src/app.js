@@ -1,9 +1,13 @@
 const express = require("express");
 const cors = require("cors");
 const authRoute = require("./routes/auth.route");
+const pizzaRoute = require("./routes/pizza.route");
+const orderRoute = require("./routes/order.route");
+const cookieParser = require("cookie-parser");
 
 // global middleware
 const app = express();
+app.use(cookieParser());
 
 app.use(express.json());
 
@@ -15,5 +19,9 @@ app.use(
 );
 
 app.use("/api/auth", authRoute);
+
+app.use("/api", pizzaRoute);
+
+app.use("/api/orders", orderRoute);
 
 module.exports = app;

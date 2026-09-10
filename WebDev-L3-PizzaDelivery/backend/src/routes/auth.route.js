@@ -3,9 +3,12 @@ const {
   registerUser,
   loginUser,
   verifyEmail,
+  resendVerification,
   forgotPassword,
   resetPassword,
+  getMe,
 } = require("../controller/auth.controller");
+const identifyUser = require("../middlewares/auth.middleware");
 
 const route = express.Router();
 
@@ -15,8 +18,14 @@ route.post("/register", registerUser);
 //login
 route.post("/login", loginUser);
 
+//get-me
+route.get("/getme", identifyUser, getMe);
+
 //email verification route
 route.get("/verify-email", verifyEmail);
+
+// resend verification link
+route.post("/resend-verification", resendVerification);
 
 //forget password
 route.post("/forget-password", forgotPassword);

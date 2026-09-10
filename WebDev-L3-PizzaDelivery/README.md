@@ -1,49 +1,35 @@
-DAY 1
-Foundation
-MongoDB
-User model
-Register
-Email verification
-JWT
-Auth middleware
+AUTH
+POST /api/auth/register ✅
+GET /api/auth/verify-email ✅
+POST /api/auth/resend-verification ✅
+POST /api/auth/login ✅
+GET /api/auth/me ✅
+POST /api/auth/logout 
+POST /api/auth/forgot-password ✅
+POST /api/auth/reset-password ✅
 
-DAY 2
-Pizza catalog
-Inventory model
-Pizza builder
-Order summary
+USER / CATALOG
+GET /api/pizzas ✅
+GET /api/ingredients ✅
 
-DAY 3
-Order model
-Order APIs
-Server-side pricing
-Order creation
+ORDERS
+POST /api/orders ✅
+GET /api/orders ✅
+GET /api/orders/:id ✅
 
-DAY 4
-Razorpay
-Payment verification
-Idempotency
-Inventory decrement
-Concurrency handling
+PAYMENTS
+POST /api/payments/create
+POST /api/payments/verify
 
-DAY 5
-Admin auth
-Admin dashboard
-Inventory management
-Order management
+ADMIN
+POST /api/admin/login
+GET /api/admin/inventory
+PATCH /api/admin/inventory/:id
+GET /api/admin/orders
+PATCH /api/admin/orders/:id/status
 
-DAY 6
-Socket.IO
-Realtime order tracking
-Nodemailer
-node-cron
-Low-stock alerts
+INTERNAL
+node-cron → low-stock email
 
-DAY 7
-Testing
-Bug fixing
-Security
-UI polish
-README
-Git
-Deploy
+REALTIME
+Socket.IO → order status updates
