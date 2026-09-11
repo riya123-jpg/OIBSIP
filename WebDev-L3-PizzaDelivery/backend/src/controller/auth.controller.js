@@ -168,6 +168,26 @@ async function getMe(req, res) {
   });
 }
 
+async function logoutUser(req, res) {
+  try {
+    res.clearCookie("token", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+    });
+    res.status(200).json({
+      success: true,
+      message: "User logged out successfully",
+    });
+  } catch (Err) {
+    console.log("error in logout");
+    res.status(500).json({
+      success: false,
+      message: "Something went wrong while logging out",
+    });
+  }
+}
+
 module.exports = {
   registerUser,
   loginUser,
@@ -176,4 +196,5 @@ module.exports = {
   forgotPassword,
   resetPassword,
   getMe,
+  logoutUser,
 };

@@ -43,4 +43,40 @@ async function sendPasswordResetEmail({ email, username, rawToken }) {
     `,
   });
 }
-module.exports = { sendVerificationEmail, sendPasswordResetEmail };
+
+async function sendLowStockEmail(lowStockItems) {
+  if (!lowStockItems.length) {
+    return;
+  }
+
+  const emailContent = lowStockItems
+    .map(
+      (item) => `
+      <div>
+        <h3>${item.name}</h3>
+        <p>Current Stock: ${item.stock}</p>
+        <p>Threshold: ${item.lowStockThreshold}</p>
+      </div>
+    `,
+    )
+    .join("");
+
+  await transporter.sendMail({
+    from: process.env.EMAIL_USER,
+    to: process.env.ADMIN_EMAIL,
+    subject: "Low Stock Alert - Pizza Platform",
+    html: `
+      <h2>Low Stock Alert</h2>
+      <p>
+        The following inventory items are below their configured threshold:
+      </p>
+
+      ${emailContent}
+    `,
+  });
+}
+module.exports = {
+  sendVerificationEmail,
+  sendPasswordResetEmail,
+  sendLowStockEmail,
+};
