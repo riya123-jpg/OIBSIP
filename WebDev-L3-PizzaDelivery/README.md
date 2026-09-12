@@ -4,7 +4,7 @@ GET /api/auth/verify-email ✅
 POST /api/auth/resend-verification ✅
 POST /api/auth/login ✅
 GET /api/auth/me ✅
-POST /api/auth/logout 
+POST /api/auth/logout ✅
 POST /api/auth/forgot-password ✅
 POST /api/auth/reset-password ✅
 
@@ -18,15 +18,19 @@ GET /api/orders ✅
 GET /api/orders/:id ✅
 
 PAYMENTS
-POST /api/payments/create
-POST /api/payments/verify
+POST /api/payments/create ✅
+POST /api/payments/verify ✅
 
 ADMIN
-POST /api/admin/login
-GET /api/admin/inventory
-PATCH /api/admin/inventory/:id
-GET /api/admin/orders
-PATCH /api/admin/orders/:id/status
+POST /api/admin/login ✅
+GET /api/admin/inventory ✅
+PATCH /api/admin/inventory/:id ✅
+GET /api/admin/orders ✅
+PATCH /api/admin/orders/:id/status ✅
+
+<!-- remaining work -->
+
+
 
 INTERNAL
 node-cron → low-stock email
