@@ -1,3 +1,5 @@
+import { Pizza, Droplets, CakeSlice, Salad } from "lucide-react";
+
 import "./HowItWorks.css";
 
 const steps = [
@@ -5,21 +7,29 @@ const steps = [
     number: "01",
     title: "Choose Your Base",
     description: "Start with one of our five crust options.",
+    detail: "5 Base Options",
+    icon: Pizza,
   },
   {
     number: "02",
     title: "Pick Your Sauce",
     description: "Choose from five signature sauce options.",
+    detail: "5 Sauce Options",
+    icon: Droplets,
   },
   {
     number: "03",
     title: "Select Your Cheese",
-    description: "Finish your base with your favourite cheese.",
+    description: "Finish your pizza with your favourite cheese.",
+    detail: "5 Cheese Options",
+    icon: CakeSlice,
   },
   {
     number: "04",
     title: "Add Your Toppings",
     description: "Mix and match your favourite toppings.",
+    detail: "Multiple Toppings",
+    icon: Salad,
   },
 ];
 
@@ -38,29 +48,41 @@ function HowItWorks() {
         </div>
 
         <div className="how-it-works__steps">
-          {steps.map((step, index) => (
-            <div className="how-it-works__step-group" key={step.number}>
-              <article className="how-it-works__step">
-                <div className="how-it-works__number">{step.number}</div>
+          {steps.map((step, index) => {
+            const Icon = step.icon;
 
-                <div className="how-it-works__icon">
-                  <span />
-                </div>
+            return (
+              <div className="how-it-works__step-group" key={step.number}>
+                <article className="how-it-works__step">
+                  <div className="how-it-works__step-top">
+                    <span className="how-it-works__number">{step.number}</span>
 
-                <h3 className="how-it-works__step-title">{step.title}</h3>
+                    <div className="how-it-works__icon">
+                      <Icon size={24} strokeWidth={1.8} aria-hidden="true" />
+                    </div>
+                  </div>
 
-                <p className="how-it-works__step-description">
-                  {step.description}
-                </p>
-              </article>
+                  <div className="how-it-works__step-content">
+                    <h3 className="how-it-works__step-title">{step.title}</h3>
 
-              {index < steps.length - 1 && (
-                <div className="how-it-works__connector" aria-hidden="true">
-                  <span>→</span>
-                </div>
-              )}
-            </div>
-          ))}
+                    <p className="how-it-works__step-description">
+                      {step.description}
+                    </p>
+                  </div>
+
+                  <span className="how-it-works__step-detail">
+                    {step.detail}
+                  </span>
+                </article>
+
+                {index < steps.length - 1 && (
+                  <div className="how-it-works__connector" aria-hidden="true">
+                    <span>→</span>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
 
         <div className="how-it-works__cta">

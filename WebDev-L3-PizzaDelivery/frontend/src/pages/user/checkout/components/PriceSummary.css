@@ -1,0 +1,160 @@
+.price-summary {
+  position: sticky;
+  top: 24px;
+
+  padding: 28px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 24px;
+
+  background: #1c1c1c;
+}
+
+.price-summary__eyebrow {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: var(--color-primary);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.price-summary__header h2 {
+  margin: 0;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: 32px;
+
+  line-height: 1;
+}
+
+.price-summary__rows {
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+
+  margin-top: 28px;
+
+  padding-bottom: 22px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.price-summary__rows div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.price-summary__rows span {
+  color: rgba(255, 255, 255, 0.46);
+
+  font-size: 12px;
+}
+
+.price-summary__rows strong {
+  color: rgba(255, 255, 255, 0.82);
+
+  font-size: 12px;
+}
+
+.price-summary__free {
+  color: #63c483 !important;
+}
+
+.price-summary__total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 22px 0;
+}
+
+.price-summary__total span {
+  color: rgba(255, 255, 255, 0.54);
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.price-summary__total strong {
+  color: var(--color-primary);
+
+  font-family: "Playfair Display", serif;
+
+  font-size: 36px;
+
+  line-height: 1;
+}
+
+.price-summary__button {
+  width: 100%;
+
+  min-height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  border-radius: 999px;
+
+  background: var(--color-primary);
+
+  color: var(--color-dark);
+
+  font-size: 13px;
+  font-weight: 800;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.price-summary__button:hover {
+  transform: translateY(-2px);
+
+  background: var(--color-primary-dark);
+}
+
+.price-summary__secure {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 16px;
+
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.price-summary__secure svg {
+  flex-shrink: 0;
+
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.price-summary__secure p {
+  margin: 0;
+
+  font-size: 10px;
+
+  line-height: 1.5;
+}
+
+@media (max-width: 850px) {
+  .price-summary {
+    position: static;
+  }
+}

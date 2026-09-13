@@ -8,6 +8,8 @@ import mexicanVeggieImage from "../../../../../assets/images/pizzas/pizza_4.png"
 import cheeseOverloadImage from "../../../../../assets/images/pizzas/pizza_5.png";
 import veggieSupremeImage from "../../../../../assets/images/pizzas/pizza_6.png";
 
+import { Link } from "react-router-dom";
+
 const pizzaPreviewData = [
   {
     name: "Margherita",
@@ -70,10 +72,9 @@ function PizzaSection() {
             </p>
           </div>
 
-          <a href="#full-menu" className="pizza-section__link">
-            View Full Menu
-            <span>→</span>
-          </a>
+          <Link to="/menu" className="pizza-section__link">
+            View Full Menu →
+          </Link>
         </div>
 
         <div className="pizza-section__grid">

@@ -1,6 +1,10 @@
 import "./pizzaCard.css";
 
-function PizzaCard({ pizza }) {
+function PizzaCard({ pizza, onAdd }) {
+  const handleAdd = () => {
+    onAdd?.(pizza);
+  };
+
   return (
     <article className="pizza-card">
       <div className="pizza-card__image-wrapper">
@@ -25,6 +29,7 @@ function PizzaCard({ pizza }) {
           <button
             type="button"
             className="pizza-card__add"
+            onClick={handleAdd}
             aria-label={`Add ${pizza.name}`}
           >
             +

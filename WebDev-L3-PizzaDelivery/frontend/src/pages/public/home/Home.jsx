@@ -1,3 +1,4 @@
+import Footer from "./components/Footer/Footer";
 import Hero from "./components/Hero/Hero";
 import HowItWorks from "./components/HowItWorks/HowItWorks";
 import PizzaSection from "./components/pizzaSection/PizzaSection";
@@ -11,6 +12,7 @@ function Home() {
 
       <PizzaSection />
       <HowItWorks />
+      <Footer />
     </div>
   );
 }

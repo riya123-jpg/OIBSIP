@@ -1,0 +1,70 @@
+.register-page {
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+
+  overflow: hidden;
+
+  background: #0f0f0f;
+}
+
+/* =========================
+   FORM SIDE
+========================= */
+
+.register-page__form {
+  min-width: 0;
+  height: 100vh;
+  min-height: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 32px 48px;
+
+  overflow: hidden;
+}
+
+/* =========================
+   VISUAL SIDE
+========================= */
+
+.register-page__visual {
+  min-width: 0;
+  height: 100vh;
+  min-height: 0;
+
+  overflow: hidden;
+}
+
+/* =========================
+   TABLET / MOBILE
+========================= */
+
+@media (max-width: 900px) {
+  .register-page {
+    height: auto;
+    min-height: 100vh;
+
+    grid-template-columns: 1fr;
+
+    overflow: visible;
+  }
+
+  .register-page__visual {
+    display: none;
+  }
+
+  .register-page__form {
+    height: auto;
+    min-height: 100vh;
+
+    overflow: visible;
+
+    padding: 40px 20px;
+  }
+}

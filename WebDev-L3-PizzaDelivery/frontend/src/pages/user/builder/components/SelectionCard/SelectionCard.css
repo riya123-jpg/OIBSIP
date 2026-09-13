@@ -1,0 +1,306 @@
+.selection-card {
+  position: relative;
+
+  width: 100%;
+  min-height: 168px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding: 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+
+  background: #202020;
+  color: #ffffff;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.selection-card:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(244, 161, 26, 0.32);
+
+  background: #232323;
+
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
+}
+
+.selection-card:focus-visible {
+  outline: none;
+
+  border-color: var(--color-primary);
+
+  box-shadow: 0 0 0 3px rgba(244, 161, 26, 0.12);
+}
+
+.selection-card--selected {
+  border-color: var(--color-primary);
+
+  background: linear-gradient(
+    145deg,
+    rgba(244, 161, 26, 0.1),
+    rgba(244, 161, 26, 0.035)
+  );
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.2),
+    0 0 0 2px rgba(244, 161, 26, 0.06);
+}
+
+.selection-card--selected:hover {
+  transform: translateY(-3px);
+
+  border-color: var(--color-primary);
+}
+
+/* =========================
+   TOP AREA
+========================= */
+
+.selection-card__top {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 16px;
+}
+
+/* =========================
+   ICON CONTAINER
+========================= */
+
+.selection-card__visual {
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  color: rgba(255, 255, 255, 0.72);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.selection-card--selected .selection-card__visual {
+  transform: scale(1.04);
+
+  background: rgba(244, 161, 26, 0.11);
+
+  color: var(--color-primary);
+
+  box-shadow: inset 0 0 0 1px rgba(244, 161, 26, 0.08);
+}
+
+/* =========================
+   BASE ICON COLORS
+========================= */
+
+.selection-card__visual--thin {
+  background: rgba(224, 173, 102, 0.09);
+  color: #e0ad66;
+}
+
+.selection-card__visual--classic {
+  background: rgba(207, 142, 77, 0.09);
+  color: #cf8e4d;
+}
+
+.selection-card__visual--cheese-burst {
+  background: rgba(233, 189, 85, 0.1);
+  color: #e9bd55;
+}
+
+.selection-card__visual--whole-wheat {
+  background: rgba(185, 130, 77, 0.1);
+  color: #b9824d;
+}
+
+.selection-card__visual--gluten-free {
+  background: rgba(229, 189, 123, 0.1);
+  color: #e5bd7b;
+}
+
+/* =========================
+   SAUCE ICON COLORS
+========================= */
+
+.selection-card__visual--tomato {
+  background: rgba(220, 100, 75, 0.1);
+  color: #dc644b;
+}
+
+.selection-card__visual--bbq {
+  background: rgba(196, 125, 97, 0.1);
+  color: #c47d61;
+}
+
+.selection-card__visual--white-garlic {
+  background: rgba(221, 208, 168, 0.09);
+  color: #ddd0a8;
+}
+
+.selection-card__visual--pesto {
+  background: rgba(130, 173, 86, 0.1);
+  color: #82ad56;
+}
+
+.selection-card__visual--arrabbiata {
+  background: rgba(217, 92, 81, 0.1);
+  color: #d95c51;
+}
+
+/* =========================
+   CHEESE ICON COLORS
+========================= */
+
+.selection-card__visual--mozzarella {
+  background: rgba(243, 216, 137, 0.1);
+  color: #f3d889;
+}
+
+.selection-card__visual--cheddar {
+  background: rgba(226, 165, 47, 0.1);
+  color: #e2a52f;
+}
+
+.selection-card__visual--four-cheese {
+  background: rgba(239, 188, 87, 0.11);
+  color: #efbc57;
+}
+
+.selection-card__visual--vegan-cheese {
+  background: rgba(224, 201, 118, 0.1);
+  color: #e0c976;
+}
+
+.selection-card__visual--extra-cheese {
+  background: rgba(244, 207, 101, 0.11);
+  color: #f4cf65;
+}
+
+/* =========================
+   SELECTED CHECK
+========================= */
+
+.selection-card__check {
+  width: 27px;
+  height: 27px;
+
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--color-primary);
+
+  color: var(--color-dark);
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+  animation: selectionCheckIn 0.18s ease;
+}
+
+@keyframes selectionCheckIn {
+  from {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =========================
+   CARD CONTENT
+========================= */
+
+.selection-card__body {
+  min-width: 0;
+}
+
+.selection-card__body h3 {
+  margin: 0 0 6px;
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  line-height: 1.3;
+}
+
+.selection-card__body p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.46);
+
+  font-size: 11px;
+
+  line-height: 1.45;
+}
+
+/* =========================
+   PRICE
+========================= */
+
+.selection-card__price {
+  margin-top: auto;
+  padding-top: 14px;
+
+  color: var(--color-primary);
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.01em;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .selection-card {
+    min-height: 156px;
+
+    padding: 14px;
+  }
+
+  .selection-card__visual {
+    width: 44px;
+    height: 44px;
+  }
+
+  .selection-card__check {
+    width: 25px;
+    height: 25px;
+  }
+}
